@@ -1,7 +1,4 @@
-from dotenv import load_dotenv
-
-load_dotenv()
-
+from xml.etree.ElementTree import VERSION
 from flask_cors import CORS
 from src.config import DB, APP
 from flask import Flask
@@ -31,4 +28,7 @@ class Application():
 
     @classmethod
     def __register_routes(cls):
-        cls.app.add_url_rule()
+        @cls.app.route("/")
+        def get_version():
+            return f"Actual version: {APP.VERSION}"
+        cls.app.add_url_rule(rule=routes["register_dr"], view_func=routes["register_dr_controller"], methods=["POST"])

@@ -4,20 +4,20 @@ class DailyRecordModel(db.Model):
 
     __tablename__ = 'daily_records'
 
-    uid = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.DateTime, nullable=False)
-    bulk_ente = db.Column(db.Float, nullable=False, default=0)
-    bulk_prod = db.Column(db.Float, nullable=False, default=0)
-    bulk_inve = db.Column(db.Float, nullable=False, default=0)
-    pack_prod_1lb = db.Column(db.Integer, nullable=False, default=0)
-    pack_sell_1lb = db.Column(db.Integer, nullable=False, default=0)
-    pack_inve_1lb = db.Column(db.Integer, nullable=False, default=0)
-    pack_prod_5lb = db.Column(db.Integer, nullable=False, default=0)
-    pack_sell_5lb = db.Column(db.Integer, nullable=False, default=0)
-    pack_inve_5lb = db.Column(db.Integer, nullable=False, default=0)
-    total_pack_prod = db.Column(db.Integer, nullable=False, default=0)
-    total_inve_prod = db.Column(db.Integer, nullable=False, default=0)
-    total_pack_sell = db.Column(db.Integer, nullable=False, default=0)
+    date = db.Column(db.Date, nullable=False, primary_key=True) # Date
+    bulk_ente = db.Column(db.Float, nullable=False, default=0) # Bulks entered
+    bulk_prod = db.Column(db.Float, nullable=False, default=0) # Bulks produced
+    bulk_inve = db.Column(db.Float, nullable=False, default=0) # Bulks in inventory
+    pack_prod_1lb = db.Column(db.Integer, nullable=False, default=0) # 1 pound packages quantity produced.
+    pack_sout_1lb = db.Column(db.Integer, nullable=False, default=0) # 1 pound packages quantity sold out.
+    pack_inve_1lb = db.Column(db.Integer, nullable=False, default=0) # 1 pound packages quantity in inventory.
+    pack_prod_5lb = db.Column(db.Integer, nullable=False, default=0) # 5 pound packages quantity produced.
+    pack_sout_5lb = db.Column(db.Integer, nullable=False, default=0) # 5 pound packages quantity sold out.
+    pack_inve_5lb = db.Column(db.Integer, nullable=False, default=0) # 5 pound packages quantity in inventory.
+    total_pack_prod = db.Column(db.Integer, nullable=False, default=0) # Total packages quantity produced.
+    total_pack_sout = db.Column(db.Integer, nullable=False, default=0) # Total packages quantity sold out.
+    total_inve_prod = db.Column(db.Integer, nullable=False, default=0) # Total packages quantity in inventory.
+    registered_in = db.Column(db.DateTime, nullable=False) # Date of the register.
 
     def __init__(
         self,
@@ -26,25 +26,27 @@ class DailyRecordModel(db.Model):
         bulk_prod,
         bulk_inve,
         pack_prod_1lb,
-        pack_sell_1lb,
+        pack_sout_1lb,
         pack_inve_1lb,
         pack_prod_5lb,
-        pack_sell_5lb,
+        pack_sout_5lb,
         pack_inve_5lb,
         total_pack_prod,
         total_inve_prod,
-        total_pack_sell
+        total_pack_sout,
+        registered_in
         ):
         self.date = date
         self.bulk_ente = bulk_ente
         self.bulk_prod = bulk_prod
         self.bulk_inve = bulk_inve
         self.pack_prod_1lb = pack_prod_1lb
-        self.pack_sell_1lb = pack_sell_1lb
+        self.pack_sout_1lb = pack_sout_1lb
         self.pack_inve_1lb = pack_inve_1lb
         self.pack_prod_5lb = pack_prod_5lb
-        self.pack_sell_5lb = pack_sell_5lb
+        self.pack_sout_5lb = pack_sout_5lb
         self.pack_inve_5lb = pack_inve_5lb
         self.total_pack_prod = total_pack_prod
         self.total_inve_prod = total_inve_prod
-        self.total_pack_sell = total_pack_sell
+        self.total_pack_sout = total_pack_sout
+        self.registered_in = registered_in
