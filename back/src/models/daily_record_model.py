@@ -1,3 +1,4 @@
+from email import message
 from src.utils.instances import db
 
 class DailyRecordModel(db.Model):
@@ -50,3 +51,21 @@ class DailyRecordModel(db.Model):
         self.total_inve_prod = total_inve_prod
         self.total_pack_sout = total_pack_sout
         self.registered_in = registered_in
+
+    def as_dict(self):
+        return dict(
+            date=str(self.date),
+            bulk_ente=str(self.bulk_ente),
+            bulk_prod=str(self.bulk_prod),
+            bulk_inve=str(self.bulk_inve),
+            pack_prod_1lb=str(self.pack_prod_1lb),
+            pack_sout_1lb=str(self.pack_sout_1lb),
+            pack_inve_1lb=str(self.pack_inve_1lb),
+            pack_prod_5lb=str(self.pack_prod_5lb),
+            pack_sout_5lb=str(self.pack_sout_5lb),
+            pack_inve_5lb=str(self.pack_inve_5lb),
+            total_pack_prod=str(self.total_pack_prod),
+            total_inve_prod=str(self.total_inve_prod),
+            total_pack_sout=str(self.total_pack_sout),
+            registered_in=str(self.registered_in)
+        )

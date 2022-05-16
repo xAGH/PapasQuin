@@ -31,4 +31,4 @@ class Application():
         @cls.app.route("/")
         def get_version():
             return f"Actual version: {APP.VERSION}"
-        cls.app.add_url_rule(rule=routes["register_dr"], view_func=routes["register_dr_controller"], methods=["POST"])
+        cls.app.add_url_rule(rule=routes["daily_record"], view_func=routes["daily_record_controller"], methods=["GET", "POST", "PUT"])

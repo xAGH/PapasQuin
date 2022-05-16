@@ -3,7 +3,20 @@ from src.models.daily_record_model import DailyRecordModel
 from src.utils.instances import db
 from src.utils.functions import get_datetime
 from sqlalchemy.exc import IntegrityError as IntegrityErrorAlchemy
+from src.utils.functions import row2dict
 class DailyRecordService():
+
+    def get_daily_record(self, daily_record):
+        if daily_record is None:
+            data = DailyRecordModel.query.all()
+            data = [row2dict(x) for x in data]
+        else:
+            data = DailyRecordModel.query.filter_by(date=daily_record).first()
+            if data is None:
+                data = []
+            else:
+                data = [data.as_dict()]
+        return ({"response":data}, 200) 
 
     def register_daily_record(self, content):
         try:
@@ -50,7 +63,7 @@ class DailyRecordService():
             db.session.rollback()
 
     def update_daily_record(self, content):
-        daily_record = DailyRecordModel.query.filter_by(date=content.get("date"))
+        daily_record = DailyRecordModel.query.filter_by(date=content.get("date")).first()
 
         if daily_record is None:
             return (
@@ -74,6 +87,7 @@ class DailyRecordService():
         daily_record.total_pack_sout = float(content.get("pack_sout_1lb")) + float(content.get("pack_sout_5lb")),
         daily_record.registered_in = get_datetime()
         db.session.commit()
+
         return (
             {
                 "response": "The daily record was updated successfully."

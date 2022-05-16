@@ -1,0 +1,30 @@
+version: '2.1'
+services:
+  db:
+    image: mysql:8
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysqlpass2022
+      - MYSQL_DATABASE=papas_quin
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+    restart: always
+    container_name: papas_db
+  
+  # app:
+  #   build: .
+  #   image: back_papasquin
+  #   env_file:
+  #     - .env
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - .:/app
+  #   depends_on:
+  #     db:
+  #       condition: service_healthy
+  #   restart: always
+  #   container_name: papas_app
