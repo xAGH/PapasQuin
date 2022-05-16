@@ -1,3 +1,4 @@
+import __init__
 from src.app import Application
 from src.utils.instances import db
 

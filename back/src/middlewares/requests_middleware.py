@@ -1,8 +1,6 @@
-from functools import wraps
 from flask import make_response, request, jsonify
 
 def content_is_json(fun):
-    @wraps
     def wrapped(*args, **kwargs):
 
         no_json = make_response(jsonify({
