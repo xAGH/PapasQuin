@@ -1,0 +1,162 @@
+_type: export
+__export_format: 4
+__export_date: 2022-05-16T05:03:59.026Z
+__export_source: insomnia.desktop.app:v2022.3.0
+resources:
+  - _id: req_23b9902e3465415587cebbb76722736c
+    parentId: fld_0bd3f4a0fb454b8ebc65661ff0af5793
+    modified: 1652677125729
+    created: 1652670403423
+    url: "{{ local }}/{{ version }}/daily_record"
+    name: Get
+    description: ""
+    method: GET
+    body: {}
+    parameters:
+      - id: pair_94645c78f98d498fb3e5445d1ccf8f66
+        name: daily_record
+        value: 2022-05-12
+        description: ""
+        disabled: false
+    headers: []
+    authentication: {}
+    metaSortKey: -1652670403423
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_0bd3f4a0fb454b8ebc65661ff0af5793
+    parentId: wrk_30246760bdd0431c9182368fe1ecb31f
+    modified: 1652563154153
+    created: 1652563154153
+    name: DailyRecord
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1652563154154
+    _type: request_group
+  - _id: wrk_30246760bdd0431c9182368fe1ecb31f
+    parentId: null
+    modified: 1652562849038
+    created: 1652562849038
+    name: New Document
+    description: ""
+    scope: design
+    _type: workspace
+  - _id: req_bf87887407eb44d4b81f8d19c8e32078
+    parentId: fld_0bd3f4a0fb454b8ebc65661ff0af5793
+    modified: 1652677164852
+    created: 1652562849070
+    url: "{{ local }}/{{ version }}/daily_record"
+    name: Register
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"date": "2022-05-12",
+        	"bulk_ente": "20",
+        	"bulk_prod": "22",
+        	"bulk_inve": "2",
+        	"pack_prod_1lb": "6",
+        	"pack_sout_1lb": "7",
+        	"pack_inve_1lb": "4",
+        	"pack_prod_5lb": "7",
+        	"pack_sout_5lb": "5",
+        	"pack_inve_5lb": "3"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_b759bb796ff6497b83b8b0101b802caa
+    authentication: {}
+    metaSortKey: -1652563001712
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_304867b8521841abba3226feef8c89cc
+    parentId: fld_0bd3f4a0fb454b8ebc65661ff0af5793
+    modified: 1652677166059
+    created: 1652669366193
+    url: "{{ local }}/{{ version }}/daily_record"
+    name: Update
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"date": "2022-05-12",
+        	"bulk_ente": "190",
+        	"bulk_prod": "22",
+        	"bulk_inve": "2",
+        	"pack_prod_1lb": "6",
+        	"pack_sout_1lb": "7",
+        	"pack_inve_1lb": "4",
+        	"pack_prod_5lb": "7",
+        	"pack_sout_5lb": "5",
+        	"pack_inve_5lb": "3"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_53625067dd7541438f56ea1706d4727f
+    authentication: {}
+    metaSortKey: -1652563001662
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_a86b205f91f27ba92b7c5efe845edc59eeecea17
+    parentId: wrk_30246760bdd0431c9182368fe1ecb31f
+    modified: 1652669434977
+    created: 1652562849059
+    name: Base Environment
+    data:
+      local: http://localhost:3000
+      version: api/v01
+    dataPropertyOrder:
+      "&":
+        - local
+        - version
+    color: null
+    isPrivate: false
+    metaSortKey: 1652562849059
+    _type: environment
+  - _id: jar_a86b205f91f27ba92b7c5efe845edc59eeecea17
+    parentId: wrk_30246760bdd0431c9182368fe1ecb31f
+    modified: 1652562849066
+    created: 1652562849066
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_40f2dcf99d694bb5a3aa9ff7ebbfc70d
+    parentId: wrk_30246760bdd0431c9182368fe1ecb31f
+    modified: 1652563110161
+    created: 1652562849054
+    fileName: PapasQuin
+    contents: ""
+    contentType: yaml
+    _type: api_spec
+  - _id: uts_830c37b2f24d42d38b32219a61476f7b
+    parentId: wrk_30246760bdd0431c9182368fe1ecb31f
+    modified: 1652562849072
+    created: 1652562849072
+    name: Example Test Suite
+    _type: unit_test_suite
