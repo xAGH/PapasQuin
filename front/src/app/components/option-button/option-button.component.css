@@ -1,4 +1,4 @@
 button{
     @apply bg-orange-300 text-black text-center p-3 text-3xl border-orange-300 border-2
-    hover:opacity-100 hover:border-black;
+    hover:opacity-100 hover:border-black rounded-xl;
 }
