@@ -2,7 +2,7 @@ from os import getenv
 
 class DB():
     ENGINE = getenv("DB_ENGINE", "mysql")
-    DRIVER = getenv("DB_DRIVER", "pymsql")
+    DRIVER = getenv("DB_DRIVER", "pymysql")
     HOST = getenv("DB_HOST")
     USER = getenv("DB_USER")
     PASS = getenv("DB_PASS")
@@ -17,6 +17,3 @@ class APP():
     DATETIME_FORMAT = '%Y-%m-%d %H:%M:%S'
     DATE_FORMAT = '%Y-%m-%d'
     VERSION = "api/v01"
-
-class KEYS():
-    JWT = getenv("JWT_KEY", "")
