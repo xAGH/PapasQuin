@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http'
+ 
 import { AppRoutingModule } from './app-routing.module';
 import { RecordsModule } from './records/records.module';
 
@@ -17,7 +18,8 @@ import { OptionButtonComponent } from './components/option-button/option-button.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RecordsModule
+    RecordsModule, 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

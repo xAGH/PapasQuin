@@ -1,0 +1,20 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class HttpClientService {
+
+  constructor(private __http: HttpClient) {  }
+
+    get<T>(url: string, options?: object): Observable<T> {
+      return options ? this.__http.get<T>(url, options) : this.__http.get<T>(url);
+    }
+
+    post<T>(url: string, data: any, options?: object): Observable<T>{
+      return options ? this.__http.post<T>(url, data, options) : this.__http.post<T>(url, data);
+    }
+
+}

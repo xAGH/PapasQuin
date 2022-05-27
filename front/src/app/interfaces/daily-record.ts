@@ -1,0 +1,16 @@
+export interface DailyRecord {
+    bulk_ente: string,
+    bulk_inve: string,
+    bulk_prod: string,
+    date: string,
+    pack_inve_1lb: string,
+    pack_inve_5lb: string,
+    pack_prod_1lb: string,
+    pack_prod_5lb: string,
+    pack_sout_1lb: string,
+    pack_sout_5lb: string,
+    registered_in: string,
+    total_inve_prod: string,
+    total_pack_prod: string,
+    total_pack_sout: string,
+}
