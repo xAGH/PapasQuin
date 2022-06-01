@@ -1,4 +1,0 @@
-button{
-    @apply bg-main-color text-black text-center p-3 text-3xl border-main-color border-2
-    hover:opacity-100 hover:border-black rounded-xl;
-}

@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   backendBaseUrl: 'http://localhost:3000/api/v01',
-  dailyRecordEndpoint: '/daily_record',
-  monthlyRecordEndpoint: '/monthlyRecord',
+  dailyRecordEndpoint: 'daily_record',
+  monthlyRecordEndpoint: 'monthlyRecord',
 };
 
 /*

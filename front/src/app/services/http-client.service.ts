@@ -7,14 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class HttpClientService {
 
-  constructor(private __http: HttpClient) {  }
+  constructor(private _http: HttpClient) {  }
 
     get<T>(url: string, options?: object): Observable<T> {
-      return options ? this.__http.get<T>(url, options) : this.__http.get<T>(url);
+      return options ? this._http.get<T>(url, options) : this._http.get<T>(url);
     }
 
     post<T>(url: string, data: any, options?: object): Observable<T>{
-      return options ? this.__http.post<T>(url, data, options) : this.__http.post<T>(url, data);
+      return options ? this._http.post<T>(url, data, options) : this._http.post<T>(url, data);
     }
 
 }

@@ -4,22 +4,22 @@ import { HttpClientModule } from '@angular/common/http'
  
 import { AppRoutingModule } from './app-routing.module';
 import { RecordsModule } from './records/records.module';
+import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
-import { OptionButtonComponent } from './components/option-button/option-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    OptionButtonComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     RecordsModule, 
-    HttpClientModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

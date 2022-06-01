@@ -6,31 +6,38 @@ import { DailyRecordsService } from 'src/app/services/daily-records.service';
 @Component({
   selector: 'app-daily-records',
   templateUrl: './daily-records.component.html',
-  styleUrls: ['./daily-records.component.css']
+  styleUrls: ['./daily-records.component.css'],
 })
 export class DailyRecordsComponent implements OnInit {
-
   dailyRecordForm!: FormGroup;
+  pattern = /^[0-9]+\.?[0-9]{1,2}$/;
+  today = new Date().toISOString().match(/\d{4}-\d{2}-\d{2}/)
 
-  constructor(private dailyRecordService: DailyRecordsService, private fb: FormBuilder) {  }
+  constructor(
+    private dailyRecordService: DailyRecordsService,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.dailyRecordForm = this.fb.group({
-      bulk_ente: ['', [Validators.required]],
-			bulk_inve: ['', [Validators.required]],
-			bulk_prod: ['', [Validators.required]],
-			date: ['', [Validators.required]],
-			pack_inve_1lb: ['', [Validators.required]],
-			pack_inve_5lb: ['', [Validators.required]],
-			pack_prod_1lb: ['', [Validators.required]],
-			pack_prod_5lb: ['', [Validators.required]],
-			pack_sout_1lb: ['', [Validators.required]],
-			pack_sout_5lb: ['', [Validators.required]],
-			registered_in: ['', [Validators.required]],
-			total_inve_prod: ['', [Validators.required]],
-			total_pack_prod: ['', [Validators.required]],
-			total_pack_sout: ['', [Validators.required]],
+	    date: [this.today, [Validators.required]],
+      bulk_ente: ['', [Validators.required, Validators.pattern(this.pattern)]],
+      bulk_prod: ['', [Validators.required, Validators.pattern(this.pattern)]],
+      bulk_inve: ['', [Validators.required, Validators.pattern(this.pattern)]],
+      pack_prod_1lb: ['', [Validators.required, Validators.pattern(this.pattern)]],
+      pack_sout_1lb: ['', [Validators.required, Validators.pattern(this.pattern)]],
+      pack_inve_1lb: ['', [Validators.required, Validators.pattern(this.pattern)]],
+      pack_prod_5lb: ['', [Validators.required, Validators.pattern(this.pattern)]],
+      pack_sout_5lb: ['', [Validators.required, Validators.pattern(this.pattern)]],
+      pack_inve_5lb: ['', [Validators.required, Validators.pattern(this.pattern)]],
     });
+  }
+
+  registerDailyRecord(){
+    if (this.dailyRecordForm.valid){
+      let data: DailyRecord = this.dailyRecordForm.value;
+      this.dailyRecordService.postDailyRecords(data);
+    }
   }
 
 }

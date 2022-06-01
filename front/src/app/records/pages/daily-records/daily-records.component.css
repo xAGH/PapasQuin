@@ -1,0 +1,27 @@
+.daily-form{
+  @apply min-h-screen grid grid-rows-[70%_20%_10%];
+}
+
+.button-container{
+  @apply flex justify-center items-center bg-blue-700;
+}
+
+.inputs-container{
+  @apply flex justify-evenly items-center;
+}
+
+.inputs-card{
+  @apply flex flex-col justify-center items-center gap-5 bg-cards p-10 rounded-lg;
+}
+
+.title{
+  @apply text-center text-xl font-semibold mb-8;
+}
+
+input{
+  @apply text-base p-2 w-full;
+}
+
+input[type=number]{
+  @apply text-right;
+}

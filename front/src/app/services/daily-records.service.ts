@@ -8,15 +8,18 @@ interface DailyRecordResponse {
   response: DailyRecord[];
 }
 
+interface ResponseStructure {
+  response: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class DailyRecordsService {
 
-  baseUrl: string = environment.backendBaseUrl;
-  dailyRecordEndpoint: string = environment.dailyRecordEndpoint;
+  url: string = `${environment.backendBaseUrl}/${environment.dailyRecordEndpoint}`;
 
-  constructor(private __client:HttpClientService) {}
+  constructor(private _client:HttpClientService) {}
 
   getDailyRecords(date?: string): Observable<DailyRecord[]>{
     let options = undefined;
@@ -27,8 +30,16 @@ export class DailyRecordsService {
         }
       }
     }
-    return this.__client.get<DailyRecordResponse>(this.baseUrl+this.dailyRecordEndpoint, options).pipe(
+    return this._client.get<DailyRecordResponse>(this.url, options).pipe(
       map(response => response.response)
     );
   }
+
+  postDailyRecords(data: DailyRecord): Observable<ResponseStructure>{
+    console.log("Ji");
+    
+    let options = {}
+    return this._client.post<ResponseStructure>(this.url, data, options);
+  }
+
 }

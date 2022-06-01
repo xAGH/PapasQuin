@@ -1,1 +1,38 @@
-<p class="text-6xl" *ngFor="let daily of dailyRecords$ | async">Entered Bulks: {{ daily.bulk_ente }}</p>
+<form [formGroup]="dailyRecordForm" (ngSubmit)="registerDailyRecord()" class="daily-form">
+  <div class="inputs-container">
+    
+    <div class="inputs-card">
+      <p class="title">Información de bultos</p>
+      <input formControlName="date" type="date" id="date" name="date" [max]="today" class="text-center">
+      <input formControlName="bulk_ente" type="number" id="bulk_ente" name="bulk_ente" min="0">
+      <input formControlName="bulk_prod" type="number" id="bulk_prod" name="bulk_prod" min="0">
+      <input formControlName="bulk_inve" type="number" id="bulk_inve" name="bulk_inve" min="0">
+    </div>
+
+    <div class="inputs-card">
+      <p class="title">Información de Paquetes</p>
+      <input formControlName="pack_prod_1lb" type="number" id="pack_prod_1lb" name="pack_prod_1lb" min="0">
+      <input formControlName="pack_sout_1lb" type="number" id="pack_sout_1lb" name="pack_sout_1lb" min="0">
+      <input formControlName="pack_inve_1lb" type="number" id="pack_inve_1lb" name="pack_inve_1lb" min="0">
+      <input formControlName="pack_prod_5lb" type="number" id="pack_prod_5lb" name="pack_prod_5lb" min="0">
+      <input formControlName="pack_sout_5lb" type="number" id="pack_sout_5lb" name="pack_sout_5lb" min="0">
+      <input formControlName="pack_inve_5lb" type="number" id="pack_inve_5lb" name="pack_inve_5lb" min="0">
+    </div>
+  </div>
+  
+  <div class="bg-green-800">
+    <p>
+
+    </p>
+    <p>
+
+    </p>
+    <p>
+
+    </p>
+  </div>
+
+  <div class="button-container">
+    <app-option-button text="Enviar"></app-option-button>
+  </div>
+</form>
