@@ -1,1 +1,5 @@
-<button>{{ text }}</button>
+<button 
+  [ngClass]="{'button-enabled': enabled, 'button-disabled': !enabled}" 
+  [disabled]="!enabled">
+  {{ text }}
+</button>

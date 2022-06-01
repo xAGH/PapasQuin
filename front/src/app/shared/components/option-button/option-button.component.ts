@@ -7,7 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class OptionButtonComponent {
 
-  @Input() text: string = "text";
+  @Input() text!: string;
+  @Input() enabled!: boolean;
 
   constructor() { }
 

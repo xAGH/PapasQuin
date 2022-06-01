@@ -1,9 +1,9 @@
 .daily-form{
-  @apply min-h-screen grid grid-rows-[70%_20%_10%];
+  @apply min-h-screen grid grid-rows-[80%_10%_10%];
 }
 
 .button-container{
-  @apply flex justify-center items-center bg-blue-700;
+  @apply flex justify-center items-center;
 }
 
 .inputs-container{
@@ -11,7 +11,11 @@
 }
 
 .inputs-card{
-  @apply flex flex-col justify-center items-center gap-5 bg-cards p-10 rounded-lg;
+  @apply flex flex-col justify-center items-center gap-5 bg-cards p-10 rounded-lg w-[35rem];
+}
+
+.input-column {
+  @apply items-center grid grid-rows-packages;
 }
 
 .title{
@@ -19,9 +23,17 @@
 }
 
 input{
-  @apply text-base p-2 w-full;
+  @apply text-base p-2 h-10 w-full text-center bg-cards border-b-2 border-white outline-none;
 }
 
-input[type=number]{
-  @apply text-right;
+label{
+  @apply text-base p-2 w-full text-left;
+}
+
+.input-label{
+  @apply w-full flex;
+}
+
+.total-info-container{
+  @apply flex justify-center items-center w-full gap-20 underline decoration-solid text-xl;
 }
