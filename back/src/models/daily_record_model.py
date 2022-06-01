@@ -17,7 +17,7 @@ class DailyRecordModel(db.Model):
     pack_inve_5lb = db.Column(db.Integer, nullable=False, default=0) # 5 pound packages quantity in inventory.
     total_pack_prod = db.Column(db.Integer, nullable=False, default=0) # Total packages quantity produced.
     total_pack_sout = db.Column(db.Integer, nullable=False, default=0) # Total packages quantity sold out.
-    total_inve_prod = db.Column(db.Integer, nullable=False, default=0) # Total packages quantity in inventory.
+    total_pack_inve = db.Column(db.Integer, nullable=False, default=0) # Total packages quantity in inventory.
     registered_in = db.Column(db.DateTime, nullable=False) # Date of the register.
 
     def __init__(
@@ -33,7 +33,7 @@ class DailyRecordModel(db.Model):
         pack_sout_5lb,
         pack_inve_5lb,
         total_pack_prod,
-        total_inve_prod,
+        total_pack_inve,
         total_pack_sout,
         registered_in
         ):
@@ -48,7 +48,7 @@ class DailyRecordModel(db.Model):
         self.pack_sout_5lb = pack_sout_5lb
         self.pack_inve_5lb = pack_inve_5lb
         self.total_pack_prod = total_pack_prod
-        self.total_inve_prod = total_inve_prod
+        self.total_pack_inve = total_pack_inve
         self.total_pack_sout = total_pack_sout
         self.registered_in = registered_in
 
@@ -65,7 +65,7 @@ class DailyRecordModel(db.Model):
             pack_sout_5lb=str(self.pack_sout_5lb),
             pack_inve_5lb=str(self.pack_inve_5lb),
             total_pack_prod=str(self.total_pack_prod),
-            total_inve_prod=str(self.total_inve_prod),
+            total_pack_inve=str(self.total_pack_inve),
             total_pack_sout=str(self.total_pack_sout),
             registered_in=str(self.registered_in)
         )

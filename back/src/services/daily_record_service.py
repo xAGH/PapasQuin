@@ -33,7 +33,7 @@ class DailyRecordService():
                     pack_sout_5lb = content.get("pack_sout_5lb"),
                     pack_inve_5lb = content.get("pack_inve_5lb"),
                     total_pack_prod = float(content.get("pack_prod_1lb")) + float(content.get("pack_prod_5lb")),
-                    total_inve_prod = float(content.get("pack_inve_1lb")) + float(content.get("pack_inve_5lb")),
+                    total_pack_inve = float(content.get("pack_inve_1lb")) + float(content.get("pack_inve_5lb")),
                     total_pack_sout = float(content.get("pack_sout_1lb")) + float(content.get("pack_sout_5lb")),
                     registered_in = get_datetime()
                 )
@@ -83,7 +83,7 @@ class DailyRecordService():
         daily_record.pack_sout_5lb = content.get("pack_sout_5lb"),
         daily_record.pack_inve_5lb = content.get("pack_inve_5lb"),
         daily_record.total_pack_prod = float(content.get("pack_prod_1lb")) + float(content.get("pack_prod_5lb")),
-        daily_record.total_inve_prod = float(content.get("pack_inve_1lb")) + float(content.get("pack_inve_5lb")),
+        daily_record.total_pack_inve = float(content.get("pack_inve_1lb")) + float(content.get("pack_inve_5lb")),
         daily_record.total_pack_sout = float(content.get("pack_sout_1lb")) + float(content.get("pack_sout_5lb")),
         daily_record.registered_in = get_datetime()
         db.session.commit()
