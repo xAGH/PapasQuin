@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClientService } from './http-client.service';
-import { DailyRecord } from '../interfaces/daily-record'
+import { HttpClientService } from '../../services/http-client.service';
+import { DailyRecord } from '../../interfaces'
 import { environment } from 'src/environments/environment';
 import { map, Observable } from 'rxjs';
+import { RecordServicesModule } from './record-services.module';
 
-interface DailyRecordResponse {
+interface GetResponseStructure {
   response: DailyRecord[];
 }
 
-interface ResponseStructure {
+interface PostResponseStructure {
   response: string;
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: RecordServicesModule
 })
 export class DailyRecordsService {
 
@@ -30,16 +31,12 @@ export class DailyRecordsService {
         }
       }
     }
-    return this._client.get<DailyRecordResponse>(this.url, options).pipe(
+    return this._client.get<GetResponseStructure>(this.url, options).pipe(
       map(response => response.response)
     );
   }
 
-  postDailyRecords(data: DailyRecord): Observable<ResponseStructure>{
-    console.log("Ji");
-    
-    let options = {}
-    return this._client.post<ResponseStructure>(this.url, data, options);
+  postDailyRecords(data: DailyRecord): Observable<PostResponseStructure>{    
+    return this._client.post<PostResponseStructure>(this.url, data).pipe(); 
   }
-
 }

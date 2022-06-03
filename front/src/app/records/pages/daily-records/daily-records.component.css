@@ -11,7 +11,7 @@
 }
 
 .inputs-card{
-  @apply flex flex-col justify-center items-center gap-5 bg-cards p-10 rounded-lg w-[35rem];
+  @apply flex flex-col justify-center items-center gap-5 bg-cards p-10 rounded-lg w-[30rem];
 }
 
 .input-column {
@@ -23,7 +23,7 @@
 }
 
 input{
-  @apply text-base p-2 h-10 w-full text-center bg-cards border-b-2 border-white outline-none;
+  @apply text-base p-2 h-10 w-full text-center border-b-2 bg-cards outline-none border-white;
 }
 
 label{
@@ -36,4 +36,20 @@ label{
 
 .total-info-container{
   @apply flex justify-center items-center w-full gap-20 underline decoration-solid text-xl;
+}
+
+.invalid{
+  @apply border-b-2 border-red-500 text-red-500;
+}
+
+.invalid input{
+  @apply border-none;
+}
+
+.tooltip {
+  @apply invisible absolute text-red-500 text-base w-44 ml-[33rem];
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50;
 }

@@ -1,24 +1,29 @@
+<app-icon-image></app-icon-image>
 <form [formGroup]="dailyRecordForm" (ngSubmit)="registerDailyRecord()" class="daily-form">
   <div class="inputs-container">
     
     <div class="inputs-card">
       <p class="title">Información de bultos</p>
 
-      <div class="input-label">
+      <div class="input-label" [ngClass]="inputIsValid('date')">
         <label for="Date">Fecha:</label>
         <input formControlName="date" type="date" id="date" name="date" [max]="today"/>
+        <span class='tooltip '>La fecha es requerida</span>
       </div>
-      <div class="input-label">
+      <div class="input-label" [ngClass]="inputIsValid('bulk_ente')">
         <label for="bulk_ente">Bultos entrantes:</label>
         <input formControlName="bulk_ente" type="number" id="bulk_ente" name="bulk_ente" min="0"/>
+        <span class='tooltip'>{{ getInputError('bulk_ente') }}</span>
       </div>
-      <div class="input-label">
+      <div class="input-label" [ngClass]="inputIsValid('bulk_prod')">
         <label for="bulk_prod">Bultos producidos:</label>
         <input formControlName="bulk_prod" type="number" id="bulk_prod" name="bulk_prod" min="0"/>
+        <span class='tooltip'>{{ getInputError('bulk_ente') }}</span>
       </div>
-      <div class="input-label">
+      <div class="input-label" [ngClass]="inputIsValid('bulk_inve')">
         <label for="bulk_inve">Bultos en inventario:</label>
         <input formControlName="bulk_inve" type="number" id="bulk_inve" name="bulk_inve" min="0"/>
+        <span class='tooltip'>{{ getInputError('bulk_ente') }}</span>
       </div>
     </div>
 
@@ -48,9 +53,9 @@
   </div>
   
   <div class="total-info-container">
-    <p> Total de paquetes producidos: {{ totalPackagesProd }} </p>
-    <p> Total de paquetes vendidos: {{ totalPackagesSout }} </p>
-    <p> Total de paquetes en inventario: {{ totalPackagesInve }} </p>
+    <p> Total de paquetes producidos: {{ ( totalPackages$ | async )!.prod }} </p>
+    <p> Total de paquetes vendidos: {{ ( totalPackages$ | async )!.sout }} </p>
+    <p> Total de paquetes en inventario: {{ ( totalPackages$ | async )!.inve }} </p>
   </div>
 
   <div class="button-container">

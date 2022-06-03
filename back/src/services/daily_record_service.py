@@ -1,4 +1,3 @@
-from pymysql import IntegrityError as IntegrityErrorPyMySQL
 from src.models.daily_record_model import DailyRecordModel
 from src.utils.instances import db
 from src.utils.functions import get_datetime
@@ -41,12 +40,12 @@ class DailyRecordService():
             db.session.commit()
             return (
                 {
-                    "response": "Daily record registered successfully."
+                    "response": "Registro diario guardado correctamente."
                 },
                 201
             )
 
-        except IntegrityErrorAlchemy or IntegrityErrorPyMySQL:
+        except IntegrityErrorAlchemy:
             db.session.rollback()
             return self.update_daily_record(content)
 
@@ -68,7 +67,7 @@ class DailyRecordService():
         if daily_record is None:
             return (
                 {
-                    "response": "The daily record doesn't exists"
+                    "response": "El registro diario con la fecha ingresada no existe."
                 },
                 409
             )
@@ -90,7 +89,7 @@ class DailyRecordService():
 
         return (
             {
-                "response": "The daily record was updated successfully."
+                "response": "El registro diario fue actualizado correctamente."
             },
             200
         )

@@ -8,6 +8,7 @@ import { RecordsRoutingModule } from './records-routing.module';
 import { DailyRecordsComponent } from './pages/daily-records/daily-records.component';
 import { MonthlyRecordsComponent } from './pages/monthly-records/monthly-records.component';
 import { QuerysComponent } from './pages/querys/querys.component';
+import { RecordServicesModule } from './services/record-services.module';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { QuerysComponent } from './pages/querys/querys.component';
     SharedModule,
     ReactiveFormsModule,
     RecordsRoutingModule,
+    RecordServicesModule
   ]
 })
 export class RecordsModule { }

@@ -16,5 +16,4 @@ export class HttpClientService {
     post<T>(url: string, data: any, options?: object): Observable<T>{
       return options ? this._http.post<T>(url, data, options) : this._http.post<T>(url, data);
     }
-
 }
