@@ -67,9 +67,9 @@ class DailyRecordService():
         if daily_record is None:
             return (
                 {
-                    "response": "El registro diario con la fecha ingresada no existe."
+                    "response": "The daily record does not exist."
                 },
-                409
+                204
             )
             
         daily_record.bulk_ente = content.get("bulk_ente"),
@@ -89,7 +89,7 @@ class DailyRecordService():
 
         return (
             {
-                "response": "El registro diario fue actualizado correctamente."
+                "response": "The daily record was updated successfully."
             },
             200
         )

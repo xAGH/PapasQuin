@@ -4,39 +4,52 @@ class MonthlyRecordModel(db.Model):
 
     __tablename__: str = 'monthly_records'
 
-    uid = db.Column(db.Integer, primary_key=True) # Unique id
     month_year = db.Column(db.String(5), nullable=False) # Month and year, format: 01/22 (MONTH/YEAR)
-    total_bulk_ente = db.Column(db.Float, nullable=False, default=0) # Total bulks entered.
-    total_bulk_prod = db.Column(db.Float, nullable=False, default=0) # Total bulks produced.
-    total_bulk_inve = db.Column(db.Float, nullable=False, default=0) # Total bulks in inventory.
-    total_pack_prod_1lb = db.Column(db.Integer, nullable=False, default=0) # Total 1 pound packages quantity produced.
-    total_pack_sell_1lb = db.Column(db.Integer, nullable=False, default=0) # Total 1 pound packages quantity sold out.
-    total_pack_inve_1lb = db.Column(db.Integer, nullable=False, default=0) # Total 1 pound packages quantity in inventory.
-    total_pack_prod_5lb = db.Column(db.Integer, nullable=False, default=0) # Total 5 pound packages quantity produced.
-    total_pack_sell_5lb = db.Column(db.Integer, nullable=False, default=0) # Total 5 pound packages quantity sold out.
-    total_pack_inve_5lb = db.Column(db.Integer, nullable=False, default=0) # Total 5 pound packages quantity in inventory.
+    bulk_ente = db.Column(db.Float, nullable=False, default=0) # Total bulks entered.
+    bulk_prod = db.Column(db.Float, nullable=False, default=0) # Total bulks produced.
+    bulk_inve = db.Column(db.Float, nullable=False, default=0) # Total bulks in inventory.
+    pack_prod_1lb = db.Column(db.Integer, nullable=False, default=0) # Total 1 pound packages quantity produced.
+    pack_sout_1lb = db.Column(db.Integer, nullable=False, default=0) # Total 1 pound packages quantity sold out.
+    pack_inve_1lb = db.Column(db.Integer, nullable=False, default=0) # Total 1 pound packages quantity in inventory.
+    pack_prod_5lb = db.Column(db.Integer, nullable=False, default=0) # Total 5 pound packages quantity produced.
+    pack_sout_5lb = db.Column(db.Integer, nullable=False, default=0) # Total 5 pound packages quantity sold out.
+    pack_inve_5lb = db.Column(db.Integer, nullable=False, default=0) # Total 5 pound packages quantity in inventory.
 
     def __init__(
         self, 
         month_year,
-        total_bulk_ente,
-        total_bulk_prod,
-        total_bulk_inve,
-        total_pack_prod_1lb,
-        total_pack_sell_1lb,
-        total_pack_inve_1lb,
-        total_pack_prod_5lb,
-        total_pack_sell_5lb,
-        total_pack_inve_5lb
+        bulk_ente,
+        bulk_prod,
+        bulk_inve,
+        pack_prod_1lb,
+        pack_sout_1lb,
+        pack_inve_1lb,
+        pack_prod_5lb,
+        pack_sout_5lb,
+        pack_inve_5lb
     ):
     
         self.month_year = month_year
-        self.total_bulk_ente = total_bulk_ente
-        self.total_bulk_prod = total_bulk_prod
-        self.total_bulk_inve = total_bulk_inve
-        self.total_pack_prod_1lb = total_pack_prod_1lb
-        self.total_pack_sell_1lb = total_pack_sell_1lb
-        self.total_pack_inve_1lb = total_pack_inve_1lb
-        self.total_pack_prod_5lb = total_pack_prod_5lb
-        self.total_pack_sell_5lb = total_pack_sell_5lb
-        self.total_pack_inve_5lb = total_pack_inve_5lb
+        self.bulk_ente = bulk_ente
+        self.bulk_prod = bulk_prod
+        self.bulk_inve = bulk_inve
+        self.pack_prod_1lb = pack_prod_1lb
+        self.pack_sout_1lb = pack_sout_1lb
+        self.pack_inve_1lb = pack_inve_1lb
+        self.pack_prod_5lb = pack_prod_5lb
+        self.pack_sout_5lb = pack_sout_5lb
+        self.pack_inve_5lb = pack_inve_5lb
+
+    def as_dict(self):
+        return dict(
+            month_year=self.month_year,
+            bulk_ente=self.bulk_ente,
+            bulk_prod=self.bulk_prod,
+            bulk_inve=self.bulk_inve,
+            pack_prod_1lb=self.pack_prod_1lb,
+            pack_sout_1lb=self.pack_sout_1lb,
+            pack_inve_1lb=self.pack_inve_1lb,
+            pack_prod_5lb=self.pack_prod_5lb,
+            pack_sout_5lb=self.pack_sout_5lb,
+            pack_inve_5lb=self.pack_inve_5lb
+        )
